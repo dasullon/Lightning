@@ -14,21 +14,36 @@ import java.io.IOException;
 
 public class Lightning extends PApplet {
 
+int startX= 0;
+int endX=50;
+int startY=150;
+int endY=40; 
 public void setup()
 {
-  size(300,300);
-  noLoop();
+	frameRate(700);
+	size(300,300);
+	background(0);
 }
 public void draw()
 {
-  int x = (int)(Math.random() * 300);
-  ellipse(x,150,10,10);
+	strokeWeight(1);
+	stroke(random(0, 255),random(0, 255),random(0, 255));
+	endX= startX + (int)(Math.random()*10-10);
+	endY= startY + (int)(Math.random()*10);
+	line(startX, startY, endX,endY); 
+	startX=endX;
+	startY=endY;
+
 }
-public void mousePressed()
-{
-  redraw();
+public void keyPressed(){
+	if (keyPressed && key=='c')
+		background(0);
 }
 
+public void mousePressed(){
+	startX= (int)(Math.random()*300);
+	startY=0;
+}
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Lightning" };
     if (passedArgs != null) {
