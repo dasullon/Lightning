@@ -28,7 +28,7 @@ public void draw()
 {
 	strokeWeight(1);
 	stroke(random(0, 255),random(0, 255),random(0, 255));
-	endX= startX + (int)(Math.random()*10-10);
+	endX= startX + (int)(Math.random()*10-5);
 	endY= startY + (int)(Math.random()*10);
 	line(startX, startY, endX,endY); 
 	startX=endX;
